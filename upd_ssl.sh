@@ -43,7 +43,8 @@ for STRING in $(cat ${DOMAINS_FILE} | grep -v "#"); do
 
     cd ${TMP_DIR}/${ID}_${DOMAIN}
     NAME=$(echo ${FULL_INFO} | jq .domains | jq .[0] | tr -d \" | sed -e 's|*|_|g' | sed -e 's|\.|_|g')
-    curl -s -k -H "Authorization: Bearer ${TOKEN}" -X GET "https://api-ms.netangels.ru/api/v1/certificates/${ID}/download/?name=${NAME}&type=tar" > ${NAME}.tar
+    curl -s -k -H "Authorization: Bearer ${TOKEN}" --data-urlencode type=tar --data-urlencode name=${NAME} -G -X GET "https://api-ms.netangels.ru/api/v1/certificates/${ID}/download/" > ${NAME}.tar
+
 
     [[ -f ${NAME}.tar ]] && {
         tar -xf ${NAME}.tar

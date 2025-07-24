@@ -1,16 +1,21 @@
 # upd_ssl
 Скрипт обновления бесплатных SSL-сертификатов, таких как Let's Encrypt сроком действия 3 месяца, на облачных серверах [NetAngels.ru](https://www.netangels.ru/) под управлением [Ubuntu Server](https://ubuntu.com/download/server). Проект представляет собой доработку скрипта службы технической поддержки [NetAngels.ru](https://www.netangels.ru/).
 
-Скрипт позволяет автоматизатировать процесс обновления SSL сертификатов, выпущенных через [панель управления NetAngels.ru](https://panel.netangels.ru/). Основную информацию скрипт пишет в свой лог `upd_ssl.log`. В скрипте используется [следующий API](https://api.netangels.ru/gateway/modules/gateway_api.api.certificates/#ssl). Скрипт проверен на `Ubuntu Server 14.04` и выше.
+Скрипт позволяет автоматизатировать процесс обновления SSL сертификатов, выпущенных через [панель управления NetAngels.ru](https://panel.netangels.ru/). Основную информацию скрипт пишет в свой лог `upd_ssl.log`. В скрипте используется [следующий API](https://api.netangels.ru/gateway/modules/gateway_api.api.certificates/#ssl). Скрипт проверен на `Ubuntu Server 20.04` и выше.
 
 ## Порядок установки и использования upd_ssl
 
-1. Для работы необходимо установить пакет `jq`. Возможно, на Debian Wheezy этого пакета нет, тогда его нужно взять из бэкпортов (тогда нужно раскомментировать первую строку):
+1. Для работы необходимо установить пакет `jq`.
+Для Ubuntu/Debian пакет ставится командой  
 ```
-#sudo echo "deb http://ftp.de.debian.org/debian wheezy-backports main contrib non-free" >> /etc/apt/source.list
 sudo apt-get update 
 sudo apt-get install -y jq
 ```
+Для CentOS\Redhat пакет ставится командой 
+``` 
+yum install -y jq
+```
+Для остальных linux дистрибутивов используйте их встроенные пакетные менеджеры для установки
 
 2. Скачиваем архив в домашнюю директорию пользователя:
 ```

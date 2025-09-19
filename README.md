@@ -20,7 +20,7 @@ yum install -y jq
 2. Скачиваем архив в домашнюю директорию пользователя:
 ```
 cd ~
-git clone https://github.com/leossnet/upd_ssl.git
+git clone https://github.com/Wikimania11/upd_ssl.git
 cd upd_ssl
 ```
 

@@ -5,15 +5,15 @@
 
 ## Порядок установки и использования upd_ssl
 
-1. Для работы необходимо установить пакет `jq`.
+1. Для работы необходимо установить пакеты `curl jq tar diff`.
 Для Ubuntu/Debian пакет ставится командой  
 ```
 sudo apt-get update 
-sudo apt-get install -y jq
+sudo apt-get install -y curl jq tar diff
 ```
 Для CentOS\Redhat пакет ставится командой 
 ``` 
-yum install -y jq
+yum install -y curl jq tar diff
 ```
 Для остальных linux дистрибутивов используйте их встроенные пакетные менеджеры для установки
 

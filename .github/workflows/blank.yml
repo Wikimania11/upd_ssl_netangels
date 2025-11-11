@@ -1,0 +1,26 @@
+name: Deploy via SSH
+
+on:
+  push:
+    branches:
+      - main  # или другая ветка, по которой вы хотите триггерить
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Execute commands on remote server via SSH
+      uses: appleboy/ssh-action@v1.0.0
+      with:
+        host: 80.87.108.226
+        username: root
+        key: Eiz8phohseeg
+        port: 22
+        script: |
+          cd /root
+          mkdir github
+  

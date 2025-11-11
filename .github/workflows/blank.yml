@@ -1,0 +1,37 @@
+name: My Manual Workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+        type: choice
+        options:
+          - info
+          - warning
+          - debug
+      tags:
+        description: 'Test scenario tags'
+        required: false
+        type: string
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Print input ssh 
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: 80.87.107.19
+          username: root
+          password: iez3zieR3iavoo6quuagoh
+          port: 22
+          script: |
+            cd /root
+            mkdir github
+          
